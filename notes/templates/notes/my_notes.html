@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Notes</title>
+
+    <style>
+
+    body{
+        font-family:Arial,sans-serif;
+        background:#07142b;
+        color:white;
+        padding:40px;
+    }
+
+    h1{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .top-buttons{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .btn{
+        text-decoration:none;
+        color:white;
+        padding:10px 20px;
+        border-radius:8px;
+        margin:5px;
+        display:inline-block;
+    }
+
+    .dashboard{
+        background:#2563eb;
+    }
+
+    .upload{
+        background:#22c55e;
+    }
+
+    .card{
+        background:#102447;
+        padding:20px;
+        margin-bottom:20px;
+        border-radius:12px;
+    }
+
+    .download{
+        background:#2563eb;
+    }
+
+    .edit{
+        background:#f59e0b;
+    }
+
+    .delete{
+        background:#dc2626;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<h1>📚 My Notes</h1>
+
+<div class="top-buttons">
+
+    <a href="/dashboard/" class="btn dashboard">
+        Dashboard
+    </a>
+
+    <a href="/upload/" class="btn upload">
+        Upload Notes
+    </a>
+
+</div>
+
+{% for note in notes %}
+
+<div class="card">
+
+    <h2>{{ note.title }}</h2>
+
+    <p>{{ note.description }}</p>
+
+    <p>
+        <strong>Subject:</strong>
+        {{ note.subject }}
+    </p>
+
+    <a href="{{ note.pdf.url }}"
+       class="btn download">
+       Download PDF
+    </a>
+
+    <a href="/edit/{{ note.id }}/"
+       class="btn edit">
+       Edit Note
+    </a>
+
+    <a href="/delete/{{ note.id }}/"
+       class="btn delete">
+       Delete Note
+    </a>
+
+</div>
+
+{% empty %}
+
+<div class="card">
+
+    <h3>No Notes Uploaded Yet</h3>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notes Portal</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial,sans-serif;
+        }
+
+        body{
+            background:#07142b;
+            color:white;
+        }
+
+        nav{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:20px 80px;
+            background:#091a36;
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:bold;
+        }
+
+        .nav-buttons a{
+            text-decoration:none;
+            color:white;
+            margin-left:15px;
+            padding:10px 20px;
+            border-radius:6px;
+        }
+
+        .login{
+            background:#2563eb;
+        }
+
+        .register{
+            background:#22c55e;
+        }
+
+        .hero{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:80px;
+        }
+
+        .hero-text{
+            width:55%;
+        }
+
+        .hero-text h1{
+            font-size:60px;
+            margin-bottom:20px;
+        }
+
+        .hero-text p{
+            font-size:22px;
+            color:#cbd5e1;
+            margin-bottom:30px;
+        }
+
+        .hero-buttons a{
+            text-decoration:none;
+            color:white;
+            padding:14px 28px;
+            border-radius:8px;
+            margin-right:15px;
+        }
+
+        .explore{
+            background:#2563eb;
+        }
+
+        .join{
+            background:#22c55e;
+        }
+
+        .hero-image{
+            width:35%;
+            text-align:center;
+            font-size:180px;
+        }
+
+        .features{
+            padding:60px 80px;
+        }
+
+        .features h2{
+            text-align:center;
+            margin-bottom:40px;
+        }
+
+        .cards{
+            display:flex;
+            gap:20px;
+        }
+
+        .card{
+            flex:1;
+            background:#102447;
+            padding:30px;
+            border-radius:12px;
+            text-align:center;
+        }
+
+        .card h3{
+            margin:15px 0;
+        }
+
+        .footer{
+            text-align:center;
+            padding:30px;
+            color:#94a3b8;
+        }
+
+    </style>
+</head>
+<body>
+
+<nav>
+
+    <div class="logo">
+        📚 Student Notes Portal
+    </div>
+
+    <div class="nav-buttons">
+
+        <a href="/login/" class="login">
+            Login
+        </a>
+
+        <a href="/register/" class="register">
+            Register
+        </a>
+
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <h1>
+            Share & Access Academic Notes
+        </h1>
+
+        <p>
+            Upload, discover and download study materials
+            from fellow students in one place.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="/register/" class="join">
+                Get Started
+            </a>
+
+            <a href="/login/" class="explore">
+                Login
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-image">
+        📄
+    </div>
+
+</section>
+
+<section class="features">
+
+    <h2>Features</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📤 Upload Notes</h3>
+            <p>
+                Share PDFs and study resources.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔍 Search Notes</h3>
+            <p>
+                Find notes instantly by title.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📚 Organized Subjects</h3>
+            <p>
+                Notes grouped subject-wise.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<div class="footer">
+    Student Notes Portal © 2026
+</div>
+
+</body>
+</html>

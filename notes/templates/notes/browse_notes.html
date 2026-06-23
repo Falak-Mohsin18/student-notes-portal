@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Browse Notes</title>
+
+    <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+        font-family:Arial,sans-serif;
+    }
+
+    body{
+        background:#07142b;
+        color:white;
+        padding:40px;
+    }
+
+    .container{
+        max-width:1200px;
+        margin:auto;
+    }
+
+    .header{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .header h1{
+        font-size:45px;
+    }
+
+    .search-box{
+        background:#102447;
+        padding:25px;
+        border-radius:15px;
+        margin-bottom:30px;
+    }
+
+    .search-box form{
+        display:flex;
+        gap:10px;
+    }
+
+    .search-box input{
+        flex:1;
+        padding:12px;
+        border:none;
+        border-radius:8px;
+    }
+
+    .search-box button{
+        background:#2563eb;
+        color:white;
+        border:none;
+        padding:12px 20px;
+        border-radius:8px;
+        cursor:pointer;
+    }
+
+    .top-buttons{
+        text-align:center;
+        margin-bottom:30px;
+    }
+
+    .btn{
+        display:inline-block;
+        text-decoration:none;
+        color:white;
+        padding:12px 20px;
+        border-radius:8px;
+        margin:5px;
+    }
+
+    .dashboard{
+        background:#2563eb;
+    }
+
+    .logout{
+        background:#dc2626;
+    }
+
+    .notes-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+        gap:20px;
+    }
+
+    .card{
+        background:#102447;
+        padding:25px;
+        border-radius:15px;
+    }
+
+    .card h2{
+        margin-bottom:15px;
+    }
+
+    .card p{
+        margin-bottom:10px;
+        color:#d1d5db;
+    }
+
+    .download-btn{
+        display:inline-block;
+        margin-top:10px;
+        background:#22c55e;
+        color:white;
+        text-decoration:none;
+        padding:10px 18px;
+        border-radius:8px;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+
+        <h1>📚 Browse Notes</h1>
+
+        <p>
+            Search and download study materials
+        </p>
+
+    </div>
+
+    <div class="top-buttons">
+
+        <a href="/dashboard/" class="btn dashboard">
+            Dashboard
+        </a>
+
+        <a href="/logout/" class="btn logout">
+            Logout
+        </a>
+
+    </div>
+
+    <div class="search-box">
+
+        <form method="GET">
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Search notes by title">
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="notes-grid">
+
+        {% for note in notes %}
+
+        <div class="card">
+
+            <h2>{{ note.title }}</h2>
+
+            <p>
+                {{ note.description }}
+            </p>
+
+            <p>
+                <strong>Subject:</strong>
+                {{ note.subject }}
+            </p>
+
+            <a
+               href="{{ note.pdf.url }}"
+               class="download-btn">
+
+               Download PDF
+
+            </a>
+
+        </div>
+
+        {% empty %}
+
+        <div class="card">
+
+            <h2>No Notes Found</h2>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+</body>
+</html>

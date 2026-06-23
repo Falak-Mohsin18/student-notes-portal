@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Notes Portal Dashboard</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07142b;
+    color:white;
+    min-height:100vh;
+}
+
+.navbar{
+    background:#091a36;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.user{
+    font-size:18px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:50px;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.hero h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    color:#cbd5e1;
+    font-size:18px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#102447;
+    padding:30px;
+    border-radius:15px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    color:white;
+    padding:12px 25px;
+    border-radius:8px;
+}
+
+.upload{
+    background:#22c55e;
+}
+
+.notes{
+    background:#2563eb;
+}
+
+.browse{
+    background:#f59e0b;
+}
+
+.profile{
+    background:#8b5cf6;
+}
+
+.logout{
+    background:#dc2626;
+}
+
+.footer{
+    text-align:center;
+    margin-top:60px;
+    color:#94a3b8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">
+        📚 Student Notes Portal
+    </div>
+
+    <div class="user">
+        Welcome, {{ user.username }}
+    </div>
+
+</div>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>Student Dashboard</h1>
+
+        <p>
+            Manage your notes, upload study materials,
+            browse resources and track your learning.
+        </p>
+
+    </div>
+
+    <div class="cards">
+
+        <!-- Upload Notes -->
+
+        <div class="card">
+
+            <h2>📤 Upload Notes</h2>
+
+            <p>
+                Upload PDFs and study materials.
+            </p>
+
+            <a href="/upload/" class="btn upload">
+                Upload
+            </a>
+
+        </div>
+
+        <!-- My Notes -->
+
+        <div class="card">
+
+            <h2>📚 My Notes</h2>
+
+            <p>
+                View and manage your uploaded notes.
+            </p>
+
+            <a href="/my-notes/" class="btn notes">
+                My Notes
+            </a>
+
+        </div>
+
+        <!-- Browse Notes -->
+
+        <div class="card">
+
+            <h2>🔍 Browse Notes</h2>
+
+            <p>
+                Search and download notes from students.
+            </p>
+
+            <a href="/notes/" class="btn browse">
+                Browse Notes
+            </a>
+
+        </div>
+
+        <!-- Profile -->
+
+        <div class="card">
+
+            <h2>👤 Profile</h2>
+
+            <p>
+                View your account information.
+            </p>
+
+            <a href="/profile/" class="btn profile">
+                Profile
+            </a>
+
+        </div>
+
+        <!-- Logout -->
+
+        <div class="card">
+
+            <h2>🚪 Logout</h2>
+
+            <p>
+                Sign out from your account.
+            </p>
+
+            <a href="/logout/" class="btn logout">
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+
+        Student Notes Portal © 2026
+
+    </div>
+
+</div>
+
+</body>
+</html>

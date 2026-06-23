@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Note</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07142b;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:40px;
+}
+
+.container{
+    width:800px;
+    background:white;
+    border-radius:20px;
+    padding:40px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+h1{
+    text-align:center;
+    color:#07142b;
+    margin-bottom:30px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin-bottom:8px;
+    color:#333;
+}
+
+input[type="text"],
+input[type="file"],
+textarea,
+select{
+    width:100%;
+    padding:12px;
+    border:1px solid #d1d5db;
+    border-radius:10px;
+    font-size:16px;
+}
+
+textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.current-file{
+    background:#f3f4f6;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:20px;
+}
+
+.current-file a{
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:bold;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.update-btn{
+    flex:1;
+    background:#f59e0b;
+    color:white;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.update-btn:hover{
+    background:#d97706;
+}
+
+.back-btn{
+    flex:1;
+    text-decoration:none;
+    text-align:center;
+    background:#2563eb;
+    color:white;
+    padding:14px;
+    border-radius:10px;
+}
+
+.back-btn:hover{
+    background:#1d4ed8;
+}
+
+.errorlist{
+    color:red;
+    margin-bottom:10px;
+}
+
+.helptext{
+    color:#666;
+    font-size:12px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h1>✏️ Edit Note</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <div class="form-group">
+
+            <label>Title</label>
+
+            {{ form.title }}
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Description</label>
+
+            {{ form.description }}
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Subject</label>
+
+            {{ form.subject }}
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Current PDF</label>
+
+            <div class="current-file">
+
+                {% if form.instance.pdf %}
+
+                <a href="{{ form.instance.pdf.url }}"
+                   target="_blank">
+
+                    View Current PDF
+
+                </a>
+
+                {% else %}
+
+                No PDF Uploaded
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Replace PDF (Optional)</label>
+
+            {{ form.pdf }}
+
+        </div>
+
+        <div class="buttons">
+
+            <button
+                type="submit"
+                class="update-btn">
+
+                Update Note
+
+            </button>
+
+            <a
+               href="/my-notes/"
+               class="back-btn">
+
+               Back to My Notes
+
+            </a>
+
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</html>
