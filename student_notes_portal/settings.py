@@ -1,6 +1,6 @@
 from pathlib import Path
 
-BASE_DIR = Path(**file**).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-a)6^rzg^6%bs-_oy%!*ya%l=e)mgla@v^gpf9*0q82dpa$nph*'
 
@@ -19,26 +19,20 @@ INSTALLED_APPS = [
 'django.contrib.sessions',
 'django.contrib.messages',
 'django.contrib.staticfiles',
-
-```
 'notes',
-```
+
 
 ]
 
 MIDDLEWARE = [
 'django.middleware.security.SecurityMiddleware',
 'whitenoise.middleware.WhiteNoiseMiddleware',
-
-```
 'django.contrib.sessions.middleware.SessionMiddleware',
 'django.middleware.common.CommonMiddleware',
 'django.middleware.csrf.CsrfViewMiddleware',
 'django.contrib.auth.middleware.AuthenticationMiddleware',
 'django.contrib.messages.middleware.MessageMiddleware',
 'django.middleware.clickjacking.XFrameOptionsMiddleware',
-```
-
 ]
 
 ROOT_URLCONF = 'student_notes_portal.urls'
